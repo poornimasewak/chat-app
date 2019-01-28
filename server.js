@@ -31,7 +31,7 @@ app.post('/save', function (req, res) {
 
 
     Chat
-        .create({ user: "req.body" })
+        .create({ user: "hello" })
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
 
