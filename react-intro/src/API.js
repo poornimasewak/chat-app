@@ -5,7 +5,7 @@ export default {
     save: function (data) {
         console.log(data);
 
-        return axios.post("/save", data);
+        return axios.post("/save", { user: data });
     }
 
 };

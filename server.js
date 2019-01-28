@@ -27,11 +27,12 @@ const chatSchema = new Schema({
 const Chat = mongoose.model("Chat", chatSchema);
 
 app.post('/save', function (req, res) {
-    console.log({ user: req.body });
+    console.log(req.body);
+    // {"poornima Mathur":  ""}
 
 
     Chat
-        .create({ user: "hello" })
+        .create(req.body)
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
 
