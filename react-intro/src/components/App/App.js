@@ -4,6 +4,7 @@ import './App.css';
 import Form from '../Form/Form.js';
 import firebase from 'firebase';
 import firebaseConfig from '../../config';
+import API from '../../API';
 firebase.initializeApp(firebaseConfig);
 class App extends Component {
   constructor(props) {
@@ -14,6 +15,9 @@ class App extends Component {
   }
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
+      console.log(user.displayName);
+      API.save(user.displayName)
+
       this.setState({ user });
     });
   }
